@@ -81,7 +81,7 @@ function filterPhone() {
               var filterPhone = res.data.filter(function (product) {
                   return product.type === selectedType;
               });
-              renderListProduct(filterPhone);
+              renderPhone(filterPhone);
           })
           .catch(function (err) {
               turnOffLoading();
