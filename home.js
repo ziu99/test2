@@ -68,7 +68,7 @@ function filterPhone() {
   var selectedType = filterSelect.value;
 
   if (selectedType === "all") {
-      fetchListProduct(); // Nếu chọn "Tất cả sản phẩm", hiển thị toàn bộ danh sách
+      fetchPhone(); // Nếu chọn "Tất cả sản phẩm", hiển thị toàn bộ danh sách
   } else {
       // Nếu chọn một loại cụ thể, lọc danh sách sản phẩm theo loại
       turnOnLoading();
@@ -152,9 +152,6 @@ function buyPhone(productId) {
             console.log("error", err);
         });
 }
-
-
-
 
 
 

@@ -15,29 +15,43 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-<style>
-  #loading{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background:darkgreen;
-    z-index: 1;
-  }
-</style>
-<link rel="stylesheet" href="./home.css">
+    <style>
+      #loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: darkgreen;
+        z-index: 1;
+      }
+    </style>
+    <link rel="stylesheet" href="./home.css" />
   </head>
 
   <body>
-<div id="loading"></div>
+    <div id="loading"></div>
 
     <div class="container">
-      <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">CYBER PHONE</a>
+      <nav class="container navbar navbar-expand-sm navbar-dark bg-primary">
+        <div class="col-md-8">
+          <a class="navbar-brand" href="#">CYBER PHONE</a>
+        </div>
+        <div class="col-md-4">
+          <div class="input-group mb-3">
+            <button
+            onclick="cartInfo()"
+              id="cartInfo"
+              class="btn btn-success"
+              data-toggle="modal"
+              data-target="#myModal"
+            >
+              Giỏ hàng
+            </button>
+          </div>
+        </div>
       </nav>
 
-      <header class="display-4 my-4">PHONE</header>
       <!-- Phan tab menu -->
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -51,35 +65,21 @@
         </li>
       </ul>
       <br />
+      <br />
       <!-- Tab panes -->
       <div class="tab-content">
         <!--Danh sách sản phẩm -->
         <div role="tabpanel" class="tab-pane in active" id="DanhSachSP">
-          <div class="row">
-            <div class="col-md-8">
-              
-              <select class="form-control" id="filterPhone" onchange="filterPhone()">
-                <option type="all">Tất cả sản phẩm</option>
-                <option type="iphone">Iphone</option>
-                <option type="samsung">Samsung</option>
-            </select>
-             
-            </div>
-            <div class="col-md-4">
-              
-              <div class="input-group mb-3">
-                <button
-                id="cartInfo"
-                class="btn btn-success"
-              >
-                Giỏ hàng
-              </button>
+          <select
+            class="form-control container"
+            id="filterPhone"
+            onchange="filterPhone()"
+          >
+            <option type="all">Tất cả sản phẩm</option>
+            <option type="iphone">Iphone</option>
+            <option type="samsung">Samsung</option>
+          </select>
 
-              </div>
-              
-            
-            </div>
-          </div>
           <div class="clear-fix"></div>
           <div class="tblSanPham" id="tblSanPham">
             <!-- BEGIN TABLE SẢN PHẨM -->
@@ -104,16 +104,38 @@
         <!-- Kết thúc danh sách sản phẩm -->
       </div>
 
-      
-
-      
-      
+      <!--  modal -->
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <table class="table table-bordered">
+              <thead>
+                <th id="idPhone">STT</th>
+                <th id="namePhone">Sản Phẩm</th>
+                <th id="imgPhone">Hình Ảnh</th>
+                <th id="pricePhone">Giá</th>
+                <th id="counterPhone">Số lượng
+            
+                </th>
+              </thead>
+              <thead>
+                <th>Tổng thanh toán</th>
+              </thead>
+            </table>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button onclick="addProduct()" class="btn btn-success">
+                MUA
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
     </div>
-    <div id="container">
-
- 
-      
-    </div>
+    <div id="container"></div>
+   
     <style>
       #container {
         min-width: 310px;
