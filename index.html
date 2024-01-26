@@ -26,21 +26,33 @@
         z-index: 1;
       }
     </style>
-    <link rel="stylesheet" href="./home.css" />
+    <link rel="stylesheet" href="./index.css" />
   </head>
 
   <body>
     <div id="loading"></div>
 
     <div class="container">
-      <nav class="container navbar navbar-expand-sm navbar-dark bg-primary">
-        <div class="col-md-8">
-          <a class="navbar-brand" href="#">CYBER PHONE</a>
+      <nav class="container navbar  ">
+        <div class="col-2">
+          <a class="navbar-brand" href="#" > CYBER PHONE</a>
         </div>
-        <div class="col-md-4">
-          <div class="input-group mb-3">
+
+        <div class="sanPham col-4">
+          <select
+            class="form-control container"
+            id="filterPhone"
+            onchange="filterPhone()"
+          >
+            <option value="all">Tất cả sản phẩm</option>
+            <option type="iphone">Iphone</option>
+            <option type="samsung">Samsung</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <div class="input-group mb-2">
             <button
-            onclick="cartInfo()"
+              onclick="cartInfo()"
               id="cartInfo"
               class="btn btn-success"
               data-toggle="modal"
@@ -50,36 +62,21 @@
             </button>
           </div>
         </div>
-      </nav>
-
-      <!-- Phan tab menu -->
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
+        <div class="col-2">
           <a
-            class="nav-link active"
-            href="#DanhSachSP"
-            role="tab"
-            data-toggle="tab"
-            >Danh sách sản phẩm</a
+            href="./admin.html"
+            style="font-size: 18px"
+            class="badge badge-secondary"
+            >ADMIN</a
           >
-        </li>
-      </ul>
+        </div>
+      </nav>
       <br />
       <br />
       <!-- Tab panes -->
-      <div class="tab-content">
+      <div class="tab-content mt-4">
         <!--Danh sách sản phẩm -->
         <div role="tabpanel" class="tab-pane in active" id="DanhSachSP">
-          <select
-            class="form-control container"
-            id="filterPhone"
-            onchange="filterPhone()"
-          >
-            <option type="all">Tất cả sản phẩm</option>
-            <option type="iphone">Iphone</option>
-            <option type="samsung">Samsung</option>
-          </select>
-
           <div class="clear-fix"></div>
           <div class="tblSanPham" id="tblSanPham">
             <!-- BEGIN TABLE SẢN PHẨM -->
@@ -111,31 +108,40 @@
             <!-- Modal Header -->
             <table class="table table-bordered">
               <thead>
-                <th id="idPhone">STT</th>
-                <th id="namePhone">Sản Phẩm</th>
-                <th id="imgPhone">Hình Ảnh</th>
-                <th id="pricePhone">Giá</th>
-                <th id="counterPhone">Số lượng
-            
-                </th>
+                <th>STT</th>
+                <th>Sản Phẩm</th>
+                <th>Hình Ảnh</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
               </thead>
+              <thead id="thanhToan" style="text-align: center;"></thead>
+            </table>
+            <table class="table table-bordered">
               <thead>
                 <th>Tổng thanh toán</th>
+                <th id="tinhTong"></th>
               </thead>
             </table>
             <!-- Modal footer -->
             <div class="modal-footer">
+              <button onclick="removeCart()" class="btn btn-danger">
+                Huỷ
+              </button>
               <button onclick="addProduct()" class="btn btn-success">
-                MUA
+                Thanh Toán
               </button>
             </div>
           </div>
         </div>
       </div>
       <!--  -->
-    </div>
-    <div id="container"></div>
-   
+
+    <!-- div để hiển thị thông báo -->
+<div id="thongBaoTT" style="display: none;" class="alert alert-success mt-3">
+  Thanh toán thành công!
+</div>
+
+
     <style>
       #container {
         min-width: 310px;
@@ -171,6 +177,8 @@
       referrerpolicy="no-referrer"
     ></script>
     <!-- ! MY JS -->
-    <script src="./home.js"></script>
-  </body>
+    <script src="./index.js"></script>
+
+  </div>
+</body>
 </html>
